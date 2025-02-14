@@ -1,0 +1,74 @@
+.landing-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.location-text {
+    font-family: "Josefin Sans";
+    color: #FFF;
+    font-size: 1rem;
+    padding-left: 5px;
+}
+
+.landing-text-above{
+    text-align: center;
+    padding-top: 2.5rem;
+}
+
+.hi-im{
+    font-family: 'Josefin Sans';
+    color: #FFF;
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.my-name{
+    font-family: 'Judson';
+    color: #DAFF69;
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+}
+
+.about-me{
+    width: 60%;
+    font-family: 'Josefin Sans';
+    color: #FFF;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin: 0 auto;
+}
+
+.landing-photo{
+    margin-top: 1.2rem;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing-photo img{
+    width: 18rem;
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+
+    /* .location-pin{
+        width: 20px;
+        height: auto;
+        background-size: contain;
+    } */
+
+}

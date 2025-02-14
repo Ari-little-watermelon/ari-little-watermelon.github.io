@@ -1,8 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import './ScrollComponent.css';
+import Landing from '../Landing/Landing';
 
 const ScrollComponent = () => {
-    const pages = ['A', 'B', 'C', 'D', 'E', 'F'];
+    const pages = [
+        {'content': <Landing/>, index: 0},
+        {'content': 'Page 1', index: 1},
+        {'content': 'Page 2', index: 2},
+    ];
     const [currentPage, setCurrentPage] = useState(0);
     const [isScrolling, setIsScrolling] = useState(false);
 
@@ -47,7 +52,7 @@ const ScrollComponent = () => {
                     pages.map((page, index) => (
                         <div key={index} className='page'>
                             <div className='page-content'>
-                                Page {page}
+                                {page.content}
                             </div>
                         </div>
                     ))

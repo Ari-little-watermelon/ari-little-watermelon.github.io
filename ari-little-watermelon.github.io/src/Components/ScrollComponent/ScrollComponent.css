@@ -4,6 +4,8 @@
     overflow: hidden;
     position: relative;
     background-image: url("../../assets/wm-bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
     position: fixed;
 }
 
@@ -22,13 +24,8 @@
 }
 
 .page-content{
-    padding: 48px;
-    background-color: rgb(88, 200, 179);
-    border-radius: 8px;
-    backdrop-filter: blur(4px);
-    color: white;
-    font-size: 48px;
-    font-weight: bold;
+    height: 95%;
+    width: 90%;
 }
 
 .page-navigation{
@@ -59,4 +56,12 @@
 .nav-dot.active{
     background-color: white;
     transform: scale(1.25);
+}
+
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+    .page-content{
+        height: 95%;
+        width: 98%;
+    }
 }

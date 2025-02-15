@@ -1,0 +1,133 @@
+.footer-wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-5%, -2.5%); /* Compensate for page-content's margins */
+}
+
+.footer-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-image: url("../../assets/footer-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover; /* Change from 'cover' to 'contain' */
+    width: 100vw;
+    height: 80vh;
+    background-position: bottom;
+    display: flex;
+    justify-content: center;
+}
+
+.like-my-style{
+    color: #FFF;
+    font-family: "Josefin Sans";
+    font-size: 4rem;
+}
+
+.footer-text-container{
+    padding-top: 10rem;
+    text-align: center;
+}
+
+.email-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    border-radius: 50px;
+    background-color: rgba(219, 253, 0, 0.2);
+}
+
+.email-icon-container{
+    width: 30px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.email-link > a{
+    font-family: "Judson";
+    color: #DBFD00;
+    text-decoration: none;
+    font-size: 2rem;
+    margin-right: 1rem;
+}
+
+.socials-container{
+    position: absolute;
+    bottom: 0;
+    
+}
+
+.social-link a{
+    color: #FFF;
+    font-family: "Judson";
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-wrapper {
+        transform: translate(0, -2.5%); /* Remove the horizontal translation at tablet view */
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .like-my-style{
+        font-size: 3rem;
+    }
+
+    .email-container{
+        padding: 7px 13px;
+    }
+
+    .email-link > a{
+        font-size: 1.5rem;
+    }
+
+    .social-link a{
+        font-size: 1rem;
+    }
+
+    .email-icon-container{
+        width: 30px;
+        height: auto;
+    }
+
+    .email-icon-container img{
+        width: 100%;
+    }
+
+    .footer-text-container{
+        padding-top: 12rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .like-my-style{
+        font-size: 2rem;
+    }
+
+    .email-container{
+        padding: 7px 13px;
+    }
+
+    .email-link > a{
+        font-size: 1rem;
+    }
+
+    .social-link a{
+        font-size: 0.8rem;
+    }
+
+    .footer-text-container{
+        padding-top: 14rem;
+    }
+
+    .email-icon-container{
+        width: 20px;
+        height: auto;
+    }
+}

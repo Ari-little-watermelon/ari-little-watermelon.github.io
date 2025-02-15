@@ -4,6 +4,7 @@ import Landing from '../Landing/Landing';
 import Project from '../Project/Project';
 import SoulScoutsImage from '../../assets/projects-images/soulscouts.png';
 import HyperesumeImage from '../../assets/projects-images/hyperesume.png';
+import Footer from '../Footer/Footer';
 
 const projectData = [
     {
@@ -31,7 +32,7 @@ const ScrollComponent = () => {
         {'content': <Landing/>, index: 0},
         {'content': <Project data={projectData[0]}/>, index: 1},
         {'content': <Project data={projectData[1]}/>, index: 2},
-        {'content': 'Page 3', index: 3},
+        {'content': <Footer/>, index: 3},
     ];
     const [currentPage, setCurrentPage] = useState(0);
     const [isScrolling, setIsScrolling] = useState(false);

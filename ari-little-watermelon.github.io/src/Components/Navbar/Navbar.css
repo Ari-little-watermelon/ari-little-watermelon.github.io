@@ -21,7 +21,7 @@
 
 .download-resume {
     border-radius: 30px;
-    background-color: #bab9b9;
+    background-color: #FFF;
     color: #000;
     font-family: "Josefin Sans";
     font-weight: 800;
@@ -34,7 +34,7 @@
 }
 
 .download-resume:hover{
-    background-color: #FFF;
+    background-color: #000000;
 }
 
 .download-resume::before {

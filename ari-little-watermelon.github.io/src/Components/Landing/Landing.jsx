@@ -20,7 +20,7 @@ const Landing = () => {
                     <img src={photo} alt="Me"/>
                 </div>
                 <div className="location">
-                    <img class="location-pin" src = {locationPin} alt="location"/>
+                    <div className='location-img'><img class="location-pin" src = {locationPin} alt="location"/></div>
                     <p className="location-text">Boston, MA</p>
                 </div>
             </div>

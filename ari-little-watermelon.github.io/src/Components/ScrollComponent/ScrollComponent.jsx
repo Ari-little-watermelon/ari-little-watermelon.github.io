@@ -39,7 +39,9 @@ const ScrollComponent = () => {
 
     useEffect(() => {
         let scrollAccumulator = 0;
+        let touchStartY = 0;
         const SCROLL_THRESHOLD = 100;
+        const TOUCH_THRESHOLD = 50;
 
         const handleWheel = (e) => {
             e.preventDefault();
@@ -62,11 +64,36 @@ const ScrollComponent = () => {
             }
         }
 
+        const handleTouchStart = (e) => {
+            touchStartY = e.touches[0].clientY;
+        };
+
+        const handleTouchMove = (e) => {
+            if (isScrolling) return;
+
+            const touchCurrentY = e.touches[0].clientY;
+            const deltaY = touchStartY - touchCurrentY;
+
+            if (deltaY > TOUCH_THRESHOLD && currentPage < pages.length-1) {
+                setIsScrolling(true);
+                setCurrentPage(prev => prev+1);
+                setTimeout(() => setIsScrolling(false), 700);
+            } else if (deltaY < -TOUCH_THRESHOLD && currentPage > 0) {
+                setIsScrolling(true);
+                setCurrentPage(prev => prev-1);
+                setTimeout(() => setIsScrolling(false), 700);
+            }
+        };
+
         const container = document.getElementById('fullpage-container');
         container.addEventListener('wheel', handleWheel, {passive: false});
+        container.addEventListener('touchstart', handleTouchStart, {passive: true});
+        container.addEventListener('touchmove', handleTouchMove, {passive: true});
 
         return () => {
             container.removeEventListener('wheel', handleWheel);
+            container.removeEventListener('touchstart', handleTouchStart);
+            container.removeEventListener('touchmove', handleTouchMove);
         };
     }, [currentPage, pages.length, isScrolling]);
 
@@ -89,7 +116,7 @@ const ScrollComponent = () => {
                 {
                     pages.map((page, index) => (
                         <button
-                            key = {index}
+                            key={index}
                             onClick={() => setCurrentPage(index)}
                             className={`nav-dot ${currentPage === index? 'active' : ''}`}
                         />

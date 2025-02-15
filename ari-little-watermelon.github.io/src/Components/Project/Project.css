@@ -1,0 +1,191 @@
+.project-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    height: 100%;
+    margin: auto;
+}
+
+.project-image{
+    width: 100%;
+    height: auto;
+}
+
+.project-image img{
+    width: 100%;
+}
+
+.title-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.name-github{
+    display: flex;
+    align-items: center;
+}
+
+.github-icon-container{
+    width: 1.8rem;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.github-icon{
+    width: 100%;
+    height: auto;
+}
+
+.project-title{
+    color: #DBFD00;
+    font-family: "Josefin Sans";
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin: 0;
+    margin-left: 0.5rem;
+    margin-top: 4px;
+}
+
+.title-link{
+    text-decoration: none;
+}
+
+.project-summary{
+    color: #FFF;
+    font-family: "Homemade Apple";
+    font-size: 1rem;
+    margin-left: 1rem;
+    text-align: right;
+}
+
+.description-skills{
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 1.5rem;
+    align-items: baseline;
+}
+
+.project-description{
+    color: #FFF;
+    font-family: "Josefin Sans";
+    font-weight: 400;
+}
+
+/*393737*/
+
+.skills-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-end;
+    height: fit-content;
+}
+
+.skill-container {
+    position: relative;
+    height: fit-content;
+}
+
+.skill-item {
+    border-radius: 30px;
+    background-color: #000000;  /* Dark background */
+    color: #FFF;
+    font-family: "Josefin Sans";
+    font-size: 0.7rem;
+    font-weight: 400;
+    padding: 4px 10px;
+    position: relative;
+    border: 1px solid #FF7DD6;
+    isolation: isolate;
+    transition: background-color 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.skill-item:hover {
+    background-color: #FF7DD6;
+}
+
+.skill-item::before {
+    content: '';
+    position: absolute;
+    filter: blur(8px);  /* Reduced blur for more subtle glow */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: calc(100% + 8px);  /* Reduced spread to keep glow closer to button */
+    width: calc(100% + 8px);
+    background-color: #FF7DD6;
+    border-radius: 60px;
+    z-index: -1;
+    opacity: 0.3;  /* Reduced opacity for subtler glow */
+    pointer-events: none;
+}
+
+@media screen and (min-width: 0px) and (max-width: 975px) {
+    .project-container{
+        width: 70%;
+    }
+
+    .project-summary{
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 790px) {
+    .project-container{
+        width: 80%;
+    }
+
+    .title-container{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .project-title{
+        margin: 0;
+        margin-top: 1rem;
+        margin-left: 0.5rem;
+        font-size: 1.4rem;
+    }
+
+    .project-summary{
+        margin: 0;
+        margin-top: 8px;
+        font-size: 0.9rem;
+    }
+
+    .name-github{
+        align-items: flex-end;
+    }
+
+    .description-skills{
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .project-description{
+        font-size: 0.8rem;
+    }
+
+    .skills-wrapper{
+        justify-content: flex-start;
+        gap: 8px;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 450px) {
+    .project-container{
+        width: 90%;
+    }
+
+    .project-summary{
+        font-size: 0.7rem;
+    }
+}

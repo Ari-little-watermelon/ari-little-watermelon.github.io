@@ -6,7 +6,7 @@ const generateBlobPath = () => {
   const points = 24;
   const centerX = 50;
   const centerY = 50;
-  const baseRadius = 30; // Increased from 25 for larger blob
+  const baseRadius = 30;
   const variance = 1.5;
   
   const angles = Array.from({ length: points }, (_, i) => {
@@ -49,22 +49,49 @@ const Blob = ({
   text,
   animationClass = 'float-animation',
   className = '',
-  yAxis,
-  xAxis,
+  desktopPosition,
+  tabletPosition,
+  monitorPosition
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [blobPath, setBlobPath] = useState('');
-  
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   useEffect(() => {
     setBlobPath(generateBlobPath());
   }, []);
+
+  const getPosition = () => {
+    if (screenWidth <900) {
+      return tabletPosition;
+    } else if (screenWidth < 1200) {
+      return desktopPosition;
+    } else {
+      return monitorPosition;
+    }
+  };
+
+  const position = getPosition();
 
   return (
     <div 
       className={`blob-container ${animationClass} ${className}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      style={{'top': yAxis, 'left': xAxis}}
+      style={{
+        position: 'absolute',
+        top: position.y,
+        left: position.x
+      }}
     >
       <div className="blob-wrapper blob-outer-glow">
         <svg
@@ -91,7 +118,6 @@ const Blob = ({
             </filter>
           </defs>
 
-          {/* Outer glow layer */}
           <path
             d={blobPath}
             style={{ 
@@ -103,7 +129,6 @@ const Blob = ({
             }}
           />
 
-          {/* Main glow effect */}
           <path
             d={blobPath}
             className="blob-path"
@@ -116,7 +141,6 @@ const Blob = ({
             }}
           />
 
-          {/* Main blob */}
           <path
             d={blobPath}
             className="blob-path"
@@ -144,10 +168,7 @@ const Blob = ({
   );
 };
 
-// Example usage
 const TechStack = () => {
-  
-
   return (
     <div className="tech-stack-container">
       {techs.map((tech) => (
@@ -159,8 +180,9 @@ const TechStack = () => {
           text={tech.name}
           animationClass={tech.animationClass}
           className={tech.className}
-          yAxis={tech.yAxis}
-          xAxis={tech.xAxis}
+          desktopPosition={tech.desktopPosition}
+          tabletPosition={tech.tabletPosition}
+          monitorPosition={tech.monitorPosition}
         />
       ))}
     </div>

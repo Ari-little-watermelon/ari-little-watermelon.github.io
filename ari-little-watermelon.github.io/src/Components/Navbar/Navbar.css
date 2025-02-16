@@ -1,18 +1,48 @@
+.navbar-outer-container{
+    width: 100%;
+    position: absolute;
+    z-index: 200;
+}
+
 #navbar-container {
     display: flex;
     width: 90%;
     margin: auto;
     align-items: center;
     justify-content: space-between;
-    position: fixed;
+    padding-top: 0.5rem;
+
 }
 
 .logo-container {
-    height: 67px;
-    width: 220px;
-    background-image: url("../../assets/Logo.png");
-    background-size: contain;
-    background-repeat: no-repeat;
+    width: 186px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-logo{
+    width: 100%;
+    height: auto;
+    padding-bottom: 10px;
+}
+
+.navbar-socials{
+    display: flex;
+    gap: 0.9rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-social-div{
+    width: 25px;
+    height: auto;
+}
+
+.navbar-social-img{
+    width: 100%;
+    height: auto;
 }
 
 .resume-btn-container {
@@ -51,7 +81,14 @@
     z-index: -1;
 }
 
+@media screen and (min-width: 0px) and (max-width: 450px) {
+    .navbar-socials{
+        display: none;
+    }
+}
+
 @media screen and (min-width: 0px) and (max-width: 768px) {
+
     #navbar-container{
         width: 95%;
         margin: auto;

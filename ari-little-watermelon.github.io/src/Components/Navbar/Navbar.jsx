@@ -3,8 +3,13 @@ import './Navbar.css';
 import githubIcon from "../../assets/github-icon.png";
 import linkedInIcon from "../../assets/linkedin-icon.png";
 import logo from "../../assets/logo.png";
+import resume from "../../assets/resume.pdf";
 
 const Navbar = () => {
+
+        const openPdf = () => {
+          window.open(resume, '_blank');
+        };
 
     return(
         <div className="navbar-outer-container">
@@ -25,7 +30,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="resume-btn-container">
-                    <button className="download-resume">DOWNLOAD RESUME</button>
+                    <button className="download-resume" onClick={openPdf}>DOWNLOAD RESUME</button>
                 </div>
             </div>
         </div>
